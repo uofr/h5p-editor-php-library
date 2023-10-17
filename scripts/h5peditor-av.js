@@ -338,7 +338,7 @@ H5PEditor.widgets.video = H5PEditor.widgets.audio = H5PEditor.AV = (function ($)
     }
 
     
-        // Check if the URL is a Kaltura URL with "entryId" or not a recognized provider
+    // Check if the URL is a Kaltura URL with "entryId" or not a recognized provider
     if (!(file.path.includes("kaltura") && file.path.includes("entryId"))) {
       this.$add.removeClass('hidden');
     }else {
