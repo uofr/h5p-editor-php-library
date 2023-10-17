@@ -319,24 +319,33 @@ H5PEditor.widgets.video = H5PEditor.widgets.audio = H5PEditor.AV = (function ($)
     var qualityName = (file.metadata && file.metadata.qualityName) ? file.metadata.qualityName : defaultQualityName;
 
     // Check if source is provider (Vimeo, YouTube, Panopto)
-  const isProvider = file.path && C.findProvider(file.path);
+    const isProvider = file.path && C.findProvider(file.path);
 
-  // allow Kaltura URLs and multiple sources from Kaltura to show
-  if (!isProvider || (file.path.includes("kaltura") && file.path.includes("entryId"))) {
-    // Remove all other files except this one
-    that.$files.children().each(function (i) {
-      if (i !== that.updateIndex) {
-        that.removeFileWithElement($(this));
-      }
-    });
-    // Remove old element if updating
-    that.$files.children().each(function () {
-      $(this).remove();
-    });
-    // This is now the first and only file
-    index = 0;
-  }
-    //this.$add.toggleClass('hidden', isProvider);
+    // Only allow single source if YouTube
+    if (isProvider) {
+      // Remove all other files except this one
+      that.$files.children().each(function (i) {
+        if (i !== that.updateIndex) {
+          that.removeFileWithElement($(this));
+        }
+      });
+      // Remove old element if updating
+      that.$files.children().each(function () {
+        $(this).remove();
+      });
+      // This is now the first and only file
+      index = 0;
+    }
+
+    
+        // Check if the URL is a Kaltura URL with "entryId" or not a recognized provider
+    if (!(file.path.includes("kaltura") && file.path.includes("entryId"))) {
+      this.$add.removeClass('hidden');
+    }else {
+      this.$add.toggleClass('hidden', isProvider);
+    }
+
+  
 
     // If updating remove and recreate element
     if (that.updateIndex !== undefined) {
@@ -377,10 +386,6 @@ H5PEditor.widgets.video = H5PEditor.widgets.audio = H5PEditor.AV = (function ($)
     else {
       $file.insertBefore(that.$files.children().eq(index));
     }
-    // No need to add the 'hidden' class if the URL comes from Kaltura
-  if (!(file.path.includes("kaltura") && file.path.includes("entryId"))) {
-    this.$add.toggleClass('hidden', isProvider);
-  }
 
     this.$add.parent().find('.h5p-copyright-button').removeClass('hidden');
 
