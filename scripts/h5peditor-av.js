@@ -336,15 +336,18 @@ H5PEditor.widgets.video = H5PEditor.widgets.audio = H5PEditor.AV = (function ($)
       // This is now the first and only file
       index = 0;
     }
-
     
-    // Check if the URL is a Kaltura URL with "entryId" or not a recognized provider
-    if (!(file.path.includes("kaltura") && file.path.includes("entryId"))) {
-      this.$add.removeClass('hidden');
-    }else {
+    //UOFR hack 
+    //dapiawej October 17, 2023
+    if (isProvider) {
       this.$add.toggleClass('hidden', isProvider);
+      console.log("Media source is (Vimeo, YouTube, Panopto)");
+    }else {
+      this.$add.toggleClass('hidden', !!isProvider);
+      // this.$add.parent().find('.h5p-add-file').removeClass('hidden');
+      console.log("Multiple media source, customizable quality is enabled!");
     }
-
+    //end of hack
   
 
     // If updating remove and recreate element
