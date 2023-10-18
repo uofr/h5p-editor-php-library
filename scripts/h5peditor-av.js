@@ -339,9 +339,11 @@ H5PEditor.widgets.video = H5PEditor.widgets.audio = H5PEditor.AV = (function ($)
     
     //UOFR hack 
     //dapiawej October 17, 2023
+    //default code: this.$add.toggleClass('hidden', isProvider); This code is causing unexpected behavior, so we cannot use it.
     if (isProvider) {
-      this.$add.toggleClass('hidden', isProvider);
+      this.$add.toggleClass('hidden', true);
       console.log("Media source is (Vimeo, YouTube, Panopto)");
+     //this.$add.parent().find('.h5p-add-file').addClass('hidden');
     }else {
       this.$add.toggleClass('hidden', !!isProvider);
       // this.$add.parent().find('.h5p-add-file').removeClass('hidden');
