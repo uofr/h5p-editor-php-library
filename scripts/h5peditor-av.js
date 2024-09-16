@@ -1144,7 +1144,7 @@ H5PEditor.widgets.video = H5PEditor.widgets.audio = H5PEditor.AV = (function ($)
     },
 	{
 		name: 'Kaltura',
-		regexp: /^.*(kaltura\.com\/)(^\.).*\.mp4/,
+		regexp: /^.*(kaltura\.com\/)(.*)\.mp4/i,
 		aspectRatio: '16:9',
 	}
   ];
