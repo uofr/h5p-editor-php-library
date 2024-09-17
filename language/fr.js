@@ -42,7 +42,7 @@ H5PEditor.language.core = {
   ctrlKey: 'ctrl',
   commandKey: '⌘',
   pasteKey: 'v',
-  supportedVideoFormats: 'H5P supporte les sources vidéo externes suivantes&nbsp;: <span class="h5p-bold">Youtube</span>, <span class="h5p-bold">Panopto</span> et <span class="h5p-bold">Vimeo</span>.',
+  supportedVideoFormats: 'H5P supporte les sources vidéo externes suivantes&nbsp;: <span class="h5p-bold">Youtube</span>, <span class="h5p-bold">Kaltura</span>, <span class="h5p-bold">Panopto</span> et <span class="h5p-bold">Vimeo</span>.',
   dragAndDropToReplaceVideo: 'Glisser-déposer un fichier vidéo ici pour remplacer',
   dragAndDropToReplaceAudio: 'Glisser-déposer un fichier audio ici pour remplacer',
   removeImage: "Supprimer l'image",
@@ -90,7 +90,7 @@ H5PEditor.language.core = {
   insertLinkTitle: 'Insert Link',
   recordAudioTitle: 'Record Audio',
   addVideoDescription:
-    'H5P supports all external video sources formatted as mp4, webm or ogv, like Vimeo Pro, and has support for YouTube and Panopto links.',
+    'H5P supports all external video sources formatted as mp4, webm or ogv, like Vimeo Pro, and has support for YouTube, Kaltura and Panopto links.',
   unsupportedVideoSource: "Unsupported video source",
   unsupportedAudioSource: "Unsupported audio source",
   insert: 'Insérer',
